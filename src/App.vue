@@ -1,7 +1,7 @@
 <template>
   <div id="a4">
-    Ficha editavel
-    </div>
+    
+  </div>
 </template>
 
 <script>
@@ -17,7 +17,10 @@ export default {
 
   border: 1px solid black;
   
-  background-color: white;
+  background-image: url('/formModel.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 
   margin: 20px auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
