@@ -2,16 +2,22 @@
   <div id="a4">
     <div class="playerDataField">
       <div class="characterName">
-        <p>Personagem:</p>
+        <input type="text" class="inputPlayerData" placeholder="Nome">
       </div>
       <div class="playerNameField">
-        <p>Jogador:</p>
+        <input type="text" class="inputPlayerData" placeholder="Jogador">
       </div>
-      <div class="classAndAncestryyField">
-        <p>Classe e Ancestralidade</p>
+      <div class="classField">
+        <input type="text" class="inputPlayerData" placeholder="Classe">
       </div>
-      <div class="levelAndXpField">
-        <p>Nível e XP</p>
+      <div class="ancestryField">
+        <input type="text" class="inputPlayerData" placeholder="Ancestralidade">
+      </div>
+      <div class="levelField">
+        <input type="text" class="inputPlayerData" placeholder="LvL">
+      </div>
+      <div class="XpField">
+        <input type="text" class="inputPlayerData" placeholder="XP">
       </div>
     </div>
   </div>
@@ -31,7 +37,7 @@ export default {
 
   border: 1px solid black;
   
-  background-image: url('/formModel.jpg');
+  background-image: url('/formModel.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -55,29 +61,62 @@ export default {
 .characterName,
 .playerNameField,
 .classAndAncestryyField,
-.levelAndXpField {
+.ancestryField,
+.classField,
+.levelField,
+.XpField {
   position: absolute;
   width: 28mm;
   height: 18mm;
-  margin: 0;
   margin-top: -10px;
 }
 
-.characterName, .playerNameField, .classAndAncestryyField, .levelAndXpField {
+.characterName, .playerNameField, .classAndAncestryyField, .classField, .ancestryField, .levelField, .XpField {
   text-align: center;
+  margin-top: 10px;
+  padding: 0;
 }
 
 .playerNameField {
-  left: 35mm;
+  left: 34mm;
 }
 
-.classAndAncestryyField {
-  width: 56mm;
-  left: 70mm;
+.classField {
+  width: 45mm;
+  left: 60mm;
 }
 
-.levelAndXpField {
-  width: 32mm;
-  left: 135mm;
+.ancestryField{
+  width: 50mm;
+  left: 89mm;
+}
+
+.levelField {
+  left: 127mm;
+}
+
+.levelField input{
+  width: 7mm;
+}
+
+.XpField{
+  left: 140mm;
+}
+
+.XpField input{
+  width: 16mm;
+}
+
+.inputPlayerData{
+  width: 28mm;
+  margin-top: 15px;
+  text-align: center;
+  border: none;
+  font-family: 'souvenir', sans-serif;
+  color: rgb(46, 46, 46);
+}
+
+.inputPlayerData:focus{
+  border: solid 2px;
 }
 </style>

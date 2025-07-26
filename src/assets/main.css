@@ -7,3 +7,17 @@ body {
   align-items: center; 
   min-height: 100vh;
 }
+
+@font-face {
+  font-family: 'minionPro';
+  src: url(../../public/font/MinionPro-Regular.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'souvenir';
+  src: url(../../public/font/Souvenir-Demi.otf);
+  font-weight: normal;
+  font-style: normal;
+}
