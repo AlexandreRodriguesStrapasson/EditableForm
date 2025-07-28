@@ -20,6 +20,57 @@
         <input type="text" class="inputPlayerData" placeholder="XP">
       </div>
     </div>
+
+    <div class="attributePointsField">
+        <div class="strengthField">
+          <input type="text" id="strengthPoint" placeholder="20">
+        </div>
+
+        <div class="strengthFieldRight">
+          <input type="text" id="strengthPointRight" placeholder="20">
+        </div>
+
+        <div class="dexterityField">
+          <input type="text" id="dexterityPoint" placeholder="20">
+        </div>
+
+        <div class="dexterityFieldRight">
+          <input type="text" id="dexterityPointRight" placeholder="20">
+        </div>
+
+        <div class="constitutionField">
+          <input type="text" id="constitutionPoint" placeholder="20">
+        </div>
+
+        <div class="constitutionFieldRight">
+          <input type="text" id="constitutionPointRight" placeholder="20">
+        </div>
+
+        <div class="intelligenceField">
+          <input type="text" id="intelligencePoint" placeholder="20">
+        </div>
+
+        <div class="intelligenceFieldRight">
+          <input type="text" id="intelligencePointRight" placeholder="20">
+        </div>
+
+
+        <div class="wisdomField">
+          <input type="text" id="wisdomPoint" placeholder="20">
+        </div>
+
+        <div class="wisdomFieldRight">
+          <input type="text" id="wisdomPointRight" placeholder="20">
+        </div>
+
+        <div class="charismaField">
+          <input type="text" id="charismaPoint" placeholder="20">
+        </div>
+
+        <div class="charismaFieldRight">
+          <input type="text" id="charismaPointRight" placeholder="20">
+        </div>
+    </div>
   </div>
 </template>
 
@@ -37,7 +88,7 @@ export default {
 
   border: 1px solid black;
   
-  background-image: url('/formModel.png');
+  background-image: url('/img/formModel.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -88,7 +139,11 @@ export default {
 
 .ancestryField{
   width: 50mm;
-  left: 89mm;
+  left: 84mm;;
+}
+
+.ancestryField input{
+  width: 30mm;
 }
 
 .levelField {
@@ -108,15 +163,93 @@ export default {
 }
 
 .inputPlayerData{
-  width: 28mm;
+  width: 20mm;
   margin-top: 15px;
   text-align: center;
   border: none;
-  font-family: 'souvenir', sans-serif;
   color: rgb(46, 46, 46);
 }
 
 .inputPlayerData:focus{
   border: solid 2px;
 }
+
+.attributePointsField{
+  position: relative;
+  width: 76mm;
+  height: 99mm;
+  top: 33mm;
+  left: 4mm;
+}
+
+.strengthField, .dexterityField, .constitutionField, .intelligenceField, .wisdomField,
+.charismaField{
+  position: absolute;
+  left: 23mm;
+}
+
+.strengthFieldRight, .dexterityFieldRight, .constitutionFieldRight, .intelligenceFieldRight, 
+.wisdomFieldRight, .charismaFieldRight{
+  position: absolute;
+  left: 36mm;
+}
+
+.strengthField{
+  top: 2mm;
+}
+
+.strengthFieldRight{
+  top: 8mm;
+}
+
+.dexterityField{
+  top: 18mm;
+}
+
+.dexterityFieldRight{
+  top: 25mm;
+}
+
+.constitutionFieldRight{
+  top: 42mm;;
+}
+
+.intelligenceFieldRight{
+  top: 57mm;
+}
+
+.wisdomFieldRight{
+  top: 73mm;
+}
+
+.charismaFieldRight{
+  top: 91mm;
+}
+
+.constitutionField{
+  top: 35mm;
+}
+
+.intelligenceField{
+  top: 51mm;
+}
+
+.wisdomField{
+  top: 67mm;
+}
+
+.charismaField{
+  top: 82mm;
+}
+
+#strengthPoint, #dexterityPoint, #constitutionPoint, #intelligencePoint, #wisdomPoint,
+#charismaPoint, #strengthPointRight, #dexterityPointRight, #constitutionPointRight, #intelligencePointRight,
+#wisdomPointRight, #charismaPointRight{
+  width: 30px;
+  height: 20px;
+  text-align: center;
+  border: none;
+  color: rgb(46, 46, 46);
+}
+
 </style>
