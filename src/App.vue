@@ -54,7 +54,6 @@
           <input type="text" id="intelligencePointRight" placeholder="20">
         </div>
 
-
         <div class="wisdomField">
           <input type="text" id="wisdomPoint" placeholder="20">
         </div>
@@ -70,6 +69,13 @@
         <div class="charismaFieldRight">
           <input type="text" id="charismaPointRight" placeholder="20">
         </div>
+    </div>
+
+    <div class="statusField">
+        <input type="text" id="pvField"         placeholder="00">
+        <input type="text" id="caField"         placeholder="00">
+        <input type="text" id="levelBonusField" placeholder="00">
+        <input type="text" id="movField"        placeholder="00">
     </div>
   </div>
 </template>
@@ -252,4 +258,41 @@ export default {
   color: rgb(46, 46, 46);
 }
 
+.statusField{
+    position: absolute;
+    left: 91mm;
+    top: 42mm;
+    width: 73mm;
+    height: 60mm;
+}
+
+.statusField input{
+  border: none;
+}
+
+#pvField, #caField, #levelBonusField, #movField{
+  position: relative;
+  text-align: center;
+  width: 10mm;
+  height: 10mm;
+}
+
+#pvField{
+  top: 7mm;
+  left: 30mm;
+}
+
+#caField{
+  top: 23mm;
+}
+
+#levelBonusField{
+  top: 23mm;
+  left: 25mm;
+}
+
+#movField{
+  top: 40mm;
+  right: 5mm;
+}
 </style>
