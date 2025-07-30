@@ -79,9 +79,9 @@
     </div>
 
     <div class="vrmField">
-      <input type="text" id="vigorField">
-      <input type="text" id="reflexesField">
-      <input type="text" id="magicField">
+      <input type="text" id="vigorField"    placeholder="00">
+      <input type="text" id="reflexesField" placeholder="00">
+      <input type="text" id="magicField"    placeholder="00">
     </div>
   </div>
 </template>
