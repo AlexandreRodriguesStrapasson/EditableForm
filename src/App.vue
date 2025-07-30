@@ -83,6 +83,13 @@
       <input type="text" id="reflexesField" placeholder="00">
       <input type="text" id="magicField"    placeholder="00">
     </div>
+
+    <div class="weaponsFields">
+        <input type="text" id="weaponNameOne" placeholder="Espada curta">
+        <input type="text" id="weaponNameTwo" placeholder="2x Lança">
+        <input type="text" id="weaponNameThree" placeholder="Adaga">
+        <input type="text" id="weaponNameFour" placeholder="Arco curto">
+    </div>
   </div>
 </template>
 
@@ -313,21 +320,58 @@ export default {
 #vigorField, #reflexesField, #magicField{
   position: relative;
   text-align: center;
-  left: 1mm;
-  height: 10mm;
-  width: 27mm;
+  left: 2mm;
+  height: 8mm;
+  width: 24mm;
+  border: none;
 }
 
 #vigorField{
-  top: 10mm;
+  top: 11mm;
 }
 
 #reflexesField{
-  top: 20mm;
+  top: 24mm;
 }
 
 #magicField{
-  top: 29.5mm;
+  top: 36mm;
 }
 
+.weaponsFields{
+  position: absolute;
+  width: 106mm;
+  height: 42mm;
+  left: 90mm;
+  top: 103mm;
+}
+
+#weaponNameOne, #weaponNameTwo, #weaponNameThree, #weaponNameFour {
+  position: relative;
+  width: 30mm;
+  height: 5mm;
+  border: none;
+  text-align: center;
+}
+
+#weaponNameOne{
+  top: 11mm;
+  left: 6mm;
+}
+
+#weaponNameTwo{
+  top: 18.7mm;
+  right: 25mm;
+}
+
+#weaponNameThree{
+  top: 26.3mm;
+  right: 56mm;
+}
+
+
+#weaponNameFour{
+  top: 28.4mm;
+  left: 6mm;
+}
 </style>
