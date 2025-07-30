@@ -77,6 +77,12 @@
         <input type="text" id="levelBonusField" placeholder="00">
         <input type="text" id="movField"        placeholder="00">
     </div>
+
+    <div class="vrmField">
+      <input type="text" id="vigorField">
+      <input type="text" id="reflexesField">
+      <input type="text" id="magicField">
+    </div>
   </div>
 </template>
 
@@ -295,4 +301,33 @@ export default {
   top: 40mm;
   right: 5mm;
 }
+
+.vrmField{
+  position: absolute;
+  width: 32mm;
+  height: 64mm;
+  left: 166mm;
+  top: 39mm;
+}
+
+#vigorField, #reflexesField, #magicField{
+  position: relative;
+  text-align: center;
+  left: 1mm;
+  height: 10mm;
+  width: 27mm;
+}
+
+#vigorField{
+  top: 10mm;
+}
+
+#reflexesField{
+  top: 20mm;
+}
+
+#magicField{
+  top: 29.5mm;
+}
+
 </style>
