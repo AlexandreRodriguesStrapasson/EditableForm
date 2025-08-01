@@ -111,6 +111,29 @@
         <input type="text" id="ppField" placeholder="100"><br>
         <input type="text" id="pcField" placeholder="100">
     </div>
+
+    <div class="equipmentsField">
+      <input type="text" id="eqpRow1">
+      <input type="text" id="eqpRow2">
+      <input type="text" id="eqpRow3">
+      <input type="text" id="eqpRow4">
+      <input type="text" id="eqpRow5">
+      <input type="text" id="eqpRow6">
+      <input type="text" id="eqpRow7">
+      <input type="text" id="eqpRow8">
+      <input type="text" id="eqpRow9">
+      <input type="text" id="eqpRow10">
+      <input type="text" id="eqpRow11">
+      <input type="text" id="eqpRow12">
+      <input type="text" id="eqpRow13">
+      <input type="text" id="eqpRow14">
+      <input type="text" id="eqpRow15">
+      <input type="text" id="eqpRow16">
+      <input type="text" id="eqpRow17">
+      <input type="text" id="eqpRow18">
+      <input type="text" id="eqpRow19">
+      <input type="text" id="eqpRow20">
+    </div>
   </div>
 </template>
 
@@ -490,4 +513,73 @@ export default {
   left: 6.5mm;
   width: 12mm;
 }
+
+.equipmentsField{
+  position: absolute;
+  width: 76mm;
+  height: 115mm;
+  top: 156mm;
+  left: 15mm;
+}
+
+.equipmentsField input{
+  border: none;
+  background-color: transparent;
+}
+
+#eqpRow1, #eqpRow2, #eqpRow3, #eqpRow4, #eqpRow5, #eqpRow6, #eqpRow7{
+  width: 70mm;
+  margin-left: 2mm;
+}
+
+#eqpRow8, #eqpRow9, #eqpRow10{
+  width: 64mm;
+  margin-left: 8mm;
+}
+
+#eqpRow11, #eqpRow12{
+  width: 66mm;
+  margin-left: 6mm;
+}
+
+#eqpRow13{
+  width: 56mm;
+  margin-left: 16mm;
+}
+
+#eqpRow14{
+  width: 56mm;
+  margin-left: 16mm;
+}
+
+#eqpRow15{
+  width: 69mm;
+  margin-left: 3mm;
+}
+
+#eqpRow16{
+  width: 41mm;
+  margin-left: 31mm;
+}
+
+#eqpRow17{
+  width: 36mm;
+  margin-left: 36mm;
+}
+
+#eqpRow18{
+  width: 31mm;
+  margin-left: 41mm;
+}
+
+#eqpRow19{
+  width: 28mm;
+  margin-left: 44mm;
+}
+
+#eqpRow20{
+  width: 26mm;
+  margin-left: 46mm;
+}
+
 </style>
