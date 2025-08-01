@@ -105,6 +105,12 @@
         <input type="text" id="mvnWeaponTree" placeholder="10">
         <input type="text" id="mvnWeaponFour" placeholder="10">
     </div>
+
+    <div class="moneyFields">
+        <input type="text" id="poField" placeholder="100"><br>
+        <input type="text" id="ppField" placeholder="100"><br>
+        <input type="text" id="pcField" placeholder="100">
+    </div>
   </div>
 </template>
 
@@ -415,7 +421,6 @@ export default {
   right: 38mm;
 }
 
-
 #dmgWeaponOne, #dmgWeaponTwo, #dmgWeaponTree, #dmgWeaponFour{
   position: relative;
   text-align: center;
@@ -454,16 +459,35 @@ export default {
   bottom: 0.7mm;
   left: 31mm;
 } 
+
 #mvnWeaponTwo{
   top: 7.5mm;
   left: 12mm;
 } 
+
 #mvnWeaponTree{
   top: 9.5mm;
   left: 83.5mm;
 } 
+
 #mvnWeaponFour{
   top: 17mm;
   left: 64mm;
+}
+
+.moneyFields{
+  position: absolute;
+  width: 28mm;
+  height: 21mm;
+  bottom: 5mm;
+  left: 62mm;
+}
+
+.moneyFields input{
+  border: none;
+  position: relative;
+  text-align: center;
+  left: 6.5mm;
+  width: 12mm;
 }
 </style>
