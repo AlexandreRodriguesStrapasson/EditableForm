@@ -85,10 +85,25 @@
     </div>
 
     <div class="weaponsFields">
-        <input type="text" id="weaponNameOne" placeholder="Espada curta">
-        <input type="text" id="weaponNameTwo" placeholder="2x Lança">
+        <input type="text" id="weaponNameOne"   placeholder="Espada curta">
+        <input type="text" id="weaponNameTwo"   placeholder="2x Lança">
         <input type="text" id="weaponNameThree" placeholder="Adaga">
-        <input type="text" id="weaponNameFour" placeholder="Arco curto">
+        <input type="text" id="weaponNameFour"  placeholder="Arco curto">
+
+        <input type="text" id="atqWeaponOne"  placeholder="10">
+        <input type="text" id="atqWeaponTwo"  placeholder="10">
+        <input type="text" id="atqWeaponTree" placeholder="10">
+        <input type="text" id="atqWeaponFour" placeholder="10">
+
+        <input type="text" id="dmgWeaponOne"  placeholder="10">
+        <input type="text" id="dmgWeaponTwo"  placeholder="10">
+        <input type="text" id="dmgWeaponTree" placeholder="10">
+        <input type="text" id="dmgWeaponFour" placeholder="10">
+
+        <input type="text" id="mvnWeaponOne"  placeholder="10">
+        <input type="text" id="mvnWeaponTwo"  placeholder="10">
+        <input type="text" id="mvnWeaponTree" placeholder="10">
+        <input type="text" id="mvnWeaponFour" placeholder="10">
     </div>
   </div>
 </template>
@@ -301,12 +316,12 @@ export default {
 
 #levelBonusField{
   top: 23mm;
-  left: 25mm;
+  left: 28mm;
 }
 
 #movField{
-  top: 40mm;
-  right: 5mm;
+  top: 42mm;
+  right: 2mm;
 }
 
 .vrmField{
@@ -346,7 +361,8 @@ export default {
   top: 103mm;
 }
 
-#weaponNameOne, #weaponNameTwo, #weaponNameThree, #weaponNameFour {
+#weaponNameOne, #weaponNameTwo, #weaponNameThree, #weaponNameFour,
+#atqWeaponOne, #atqWeaponTwo, #atqWeaponTree, #atqWeaponFour{
   position: relative;
   width: 30mm;
   height: 5mm;
@@ -369,9 +385,85 @@ export default {
   right: 56mm;
 }
 
-
 #weaponNameFour{
   top: 28.4mm;
   left: 6mm;
+}
+
+#atqWeaponOne, #atqWeaponTwo, #atqWeaponTree, #atqWeaponFour{
+  position: relative;
+  width: 16mm;
+}
+
+#atqWeaponOne{
+    top: 5mm;
+    left: 13mm;
+}
+
+#atqWeaponTwo{
+  top: 13mm;
+  right: 4mm;
+}
+
+#atqWeaponTree{
+  top: 20.5mm;
+  right: 21mm;
+}
+
+#atqWeaponFour{
+  top: 28mm;
+  right: 38mm;
+}
+
+
+#dmgWeaponOne, #dmgWeaponTwo, #dmgWeaponTree, #dmgWeaponFour{
+  position: relative;
+  text-align: center;
+  border: none;
+  width: 12mm;
+}
+
+#dmgWeaponOne{
+  bottom: 1mm;
+  left: 64mm;
+}
+
+#dmgWeaponTwo{
+  top: 7.5mm;
+  left: 51mm;
+}
+
+#dmgWeaponTree{
+  top: 15mm;
+  left: 38mm;
+}
+
+#dmgWeaponFour{
+  top: 23mm;
+  left: 25mm;
+}
+
+#mvnWeaponOne, #mvnWeaponTwo, #mvnWeaponTree, #mvnWeaponFour{
+  position: relative;
+  text-align: center;
+  border: none;
+  width: 18mm;
+}
+
+#mvnWeaponOne{
+  bottom: 0.7mm;
+  left: 31mm;
+} 
+#mvnWeaponTwo{
+  top: 7.5mm;
+  left: 12mm;
+} 
+#mvnWeaponTree{
+  top: 9.5mm;
+  left: 83.5mm;
+} 
+#mvnWeaponFour{
+  top: 17mm;
+  left: 64mm;
 }
 </style>
