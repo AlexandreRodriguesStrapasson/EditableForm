@@ -1,115 +1,126 @@
 <template>
-  <div id="a4">
-    <div class="playerDataField">
-      <div class="characterName">
-        <input type="text" class="inputPlayerData" placeholder="Nome">
+  <div>
+    <div id="a4">
+      <div class="playerDataField">
+        <div class="characterName">
+          <input type="text" class="inputPlayerData" placeholder="Nome">
+        </div>
+        <div class="playerNameField">
+          <input type="text" class="inputPlayerData" placeholder="Jogador">
+        </div>
+        <div class="classField">
+          <input type="text" class="inputPlayerData" placeholder="Classe">
+        </div>
+        <div class="ancestryField">
+          <input type="text" class="inputPlayerData" placeholder="Ancestralidade">
+        </div>
+        <div class="levelField">
+          <input type="text" class="inputPlayerData" placeholder="LvL">
+        </div>
+        <div class="XpField">
+          <input type="text" class="inputPlayerData" placeholder="XP">
+        </div>
       </div>
-      <div class="playerNameField">
-        <input type="text" class="inputPlayerData" placeholder="Jogador">
+  
+      <div class="attributePointsField">
+        <div class="strengthField">
+          <input type="text" id="strengthPoint" placeholder="20">
+        </div>
+        <div class="strengthFieldRight">
+          <input type="text" id="strengthPointRight" placeholder="20">
+        </div>
+        <div class="dexterityField">
+          <input type="text" id="dexterityPoint" placeholder="20">
+        </div>
+        <div class="dexterityFieldRight">
+          <input type="text" id="dexterityPointRight" placeholder="20">
+        </div>
+        <div class="constitutionField">
+          <input type="text" id="constitutionPoint" placeholder="20">
+        </div>
+        <div class="constitutionFieldRight">
+          <input type="text" id="constitutionPointRight" placeholder="20">
+        </div>
+        <div class="intelligenceField">
+          <input type="text" id="intelligencePoint" placeholder="20">
+        </div>
+        <div class="intelligenceFieldRight">
+          <input type="text" id="intelligencePointRight" placeholder="20">
+        </div>
+        <div class="wisdomField">
+          <input type="text" id="wisdomPoint" placeholder="20">
+        </div>
+        <div class="wisdomFieldRight">
+          <input type="text" id="wisdomPointRight" placeholder="20">
+        </div>
+        <div class="charismaField">
+          <input type="text" id="charismaPoint" placeholder="20">
+        </div>
+        <div class="charismaFieldRight">
+          <input type="text" id="charismaPointRight" placeholder="20">
+        </div>
       </div>
-      <div class="classField">
-        <input type="text" class="inputPlayerData" placeholder="Classe">
+  
+      <div class="statusField">
+        <input type="text" id="pvField" placeholder="00">
+        <input type="text" id="caField" placeholder="00">
+        <input type="text" id="levelBonusField" placeholder="00">
+        <input type="text" id="movField" placeholder="00">
       </div>
-      <div class="ancestryField">
-        <input type="text" class="inputPlayerData" placeholder="Ancestralidade">
+  
+      <div class="vrmField">
+        <input type="text" id="vigorField"    placeholder="00">
+        <input type="text" id="reflexesField" placeholder="00">
+        <input type="text" id="magicField"    placeholder="00">
       </div>
-      <div class="levelField">
-        <input type="text" class="inputPlayerData" placeholder="LvL">
+  
+      <div class="weaponsFields">
+        <input type="text" id="weaponNameOne"   placeholder="Espada curta">
+        <input type="text" id="weaponNameTwo"   placeholder="2x Lança">
+        <input type="text" id="weaponNameThree" placeholder="Adaga">
+        <input type="text" id="weaponNameFour"  placeholder="Arco curto">
+  
+        <input type="text" id="atqWeaponOne"  placeholder="10">
+        <input type="text" id="atqWeaponTwo"  placeholder="10">
+        <input type="text" id="atqWeaponTree" placeholder="10">
+        <input type="text" id="atqWeaponFour" placeholder="10">
+  
+        <input type="text" id="dmgWeaponOne"  placeholder="10">
+        <input type="text" id="dmgWeaponTwo"  placeholder="10">
+        <input type="text" id="dmgWeaponTree" placeholder="10">
+        <input type="text" id="dmgWeaponFour" placeholder="10">
+  
+        <input type="text" id="mvnWeaponOne"  placeholder="10">
+        <input type="text" id="mvnWeaponTwo"  placeholder="10">
+        <input type="text" id="mvnWeaponTree" placeholder="10">
+        <input type="text" id="mvnWeaponFour" placeholder="10">
       </div>
-      <div class="XpField">
-        <input type="text" class="inputPlayerData" placeholder="XP">
+  
+      <div class="moneyFields">
+        <input type="text" id="poField" placeholder="100"><br>
+        <input type="text" id="ppField" placeholder="100"><br>
+        <input type="text" id="pcField" placeholder="100">
+      </div>
+  
+      <div class="equipmentsField">
+        <input
+          v-for="(item, index) in equipmentList"
+          :key="index"
+          v-model="equipmentList[index]"
+          :placeholder="index === firstEmptyIndex ? '...' : ''"
+          :style="getRowStyle(index)"
+        >
+      </div>
+  
+      <div class="skillsField">
+        <div>
+          <textarea class="skillFieldOne" placeholder="Bola de fogo"></textarea>
+          <textarea class="skillFieldTwo" placeholder="..."></textarea>
+          <textarea class="skillFieldThree" placeholder="..."></textarea>
+        </div>
       </div>
     </div>
-
-    <div class="attributePointsField">
-      <div class="strengthField">
-        <input type="text" id="strengthPoint" placeholder="20">
-      </div>
-      <div class="strengthFieldRight">
-        <input type="text" id="strengthPointRight" placeholder="20">
-      </div>
-      <div class="dexterityField">
-        <input type="text" id="dexterityPoint" placeholder="20">
-      </div>
-      <div class="dexterityFieldRight">
-        <input type="text" id="dexterityPointRight" placeholder="20">
-      </div>
-      <div class="constitutionField">
-        <input type="text" id="constitutionPoint" placeholder="20">
-      </div>
-      <div class="constitutionFieldRight">
-        <input type="text" id="constitutionPointRight" placeholder="20">
-      </div>
-      <div class="intelligenceField">
-        <input type="text" id="intelligencePoint" placeholder="20">
-      </div>
-      <div class="intelligenceFieldRight">
-        <input type="text" id="intelligencePointRight" placeholder="20">
-      </div>
-      <div class="wisdomField">
-        <input type="text" id="wisdomPoint" placeholder="20">
-      </div>
-      <div class="wisdomFieldRight">
-        <input type="text" id="wisdomPointRight" placeholder="20">
-      </div>
-      <div class="charismaField">
-        <input type="text" id="charismaPoint" placeholder="20">
-      </div>
-      <div class="charismaFieldRight">
-        <input type="text" id="charismaPointRight" placeholder="20">
-      </div>
-    </div>
-
-    <div class="statusField">
-      <input type="text" id="pvField" placeholder="00">
-      <input type="text" id="caField" placeholder="00">
-      <input type="text" id="levelBonusField" placeholder="00">
-      <input type="text" id="movField" placeholder="00">
-    </div>
-
-    <div class="vrmField">
-      <input type="text" id="vigorField"    placeholder="00">
-      <input type="text" id="reflexesField" placeholder="00">
-      <input type="text" id="magicField"    placeholder="00">
-    </div>
-
-    <div class="weaponsFields">
-      <input type="text" id="weaponNameOne"   placeholder="Espada curta">
-      <input type="text" id="weaponNameTwo"   placeholder="2x Lança">
-      <input type="text" id="weaponNameThree" placeholder="Adaga">
-      <input type="text" id="weaponNameFour"  placeholder="Arco curto">
-
-      <input type="text" id="atqWeaponOne"  placeholder="10">
-      <input type="text" id="atqWeaponTwo"  placeholder="10">
-      <input type="text" id="atqWeaponTree" placeholder="10">
-      <input type="text" id="atqWeaponFour" placeholder="10">
-
-      <input type="text" id="dmgWeaponOne"  placeholder="10">
-      <input type="text" id="dmgWeaponTwo"  placeholder="10">
-      <input type="text" id="dmgWeaponTree" placeholder="10">
-      <input type="text" id="dmgWeaponFour" placeholder="10">
-
-      <input type="text" id="mvnWeaponOne"  placeholder="10">
-      <input type="text" id="mvnWeaponTwo"  placeholder="10">
-      <input type="text" id="mvnWeaponTree" placeholder="10">
-      <input type="text" id="mvnWeaponFour" placeholder="10">
-    </div>
-
-    <div class="moneyFields">
-      <input type="text" id="poField" placeholder="100"><br>
-      <input type="text" id="ppField" placeholder="100"><br>
-      <input type="text" id="pcField" placeholder="100">
-    </div>
-
-    <div class="equipmentsField">
-      <input
-        v-for="(item, index) in equipmentList"
-        :key="index"
-        v-model="equipmentList[index]"
-        :placeholder="index === firstEmptyIndex ? '...' : ''"
-        :style="getRowStyle(index)"
-      >
-    </div>
+    <button class="pdfBt">Exportar para PDF</button>
   </div>
 </template>
 
@@ -158,6 +169,23 @@ const getRowStyle = (index) => {
 </script>
 
 <style scoped>
+.pdfBt{
+  position: absolute;
+  top: 3rem;
+  right: 2rem;
+  height: 3.5rem;
+  width: 15rem;
+  color: red;
+  background: black;
+  border: red solid 1px;
+  transition: 1s;
+}
+
+.pdfBt:hover{
+  background: red;
+  color: black;
+}
+
 #a4 {
   position: relative;
   width: 210mm;
@@ -172,6 +200,7 @@ const getRowStyle = (index) => {
   box-sizing: border-box;
   padding: 10mm;
 }
+
 .playerDataField{
   position: absolute;
   top: 23mm;
@@ -535,5 +564,64 @@ const getRowStyle = (index) => {
 .equipmentsField input{
   border: none;
   background-color: transparent;
+}
+
+.skillsField{
+  position: absolute;
+  width: 97mm;
+  height: 63mm;
+  left: 92mm;
+  top: 156mm;
+}
+
+.skillsField .skillFieldOne {
+  width: 100%;
+  height: 62mm;
+  
+  overflow-y: hidden; 
+  border: none;
+  resize: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 2mm;
+  
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.skillsField .skillFieldTwo {
+  width: 86mm;
+  height: 43mm;
+  
+  margin-top: -3.5mm;
+  overflow-y: hidden; 
+  border: none;
+  resize: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 2mm;
+  
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.skillsField .skillFieldThree {
+  width: 77mm;
+  height: 38mm;
+
+  margin-top: -5.5mm;
+  overflow-y: hidden; 
+  border: none;
+  resize: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 2mm;
+  
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.skillsField textarea:focus {
+  outline: none;
 }
 </style>
