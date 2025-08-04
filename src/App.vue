@@ -110,6 +110,14 @@
         :style="getRowStyle(index)"
       >
     </div>
+
+    <div class="skillsField">
+      <div>
+        <textarea class="skillFieldOne" placeholder="Bola de fogo"></textarea>
+        <textarea class="skillFieldTwo" placeholder="..."></textarea>
+        <textarea class="skillFieldThree" placeholder="..."></textarea>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -535,5 +543,64 @@ const getRowStyle = (index) => {
 .equipmentsField input{
   border: none;
   background-color: transparent;
+}
+
+.skillsField{
+  position: absolute;
+  width: 97mm;
+  height: 63mm;
+  left: 92mm;
+  top: 156mm;
+}
+
+.skillsField .skillFieldOne {
+  width: 100%;
+  height: 62mm;
+  
+  overflow-y: hidden; 
+  border: none;
+  resize: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 2mm;
+  
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.skillsField .skillFieldTwo {
+  width: 86mm;
+  height: 43mm;
+  
+  margin-top: -3.5mm;
+  overflow-y: hidden; 
+  border: none;
+  resize: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 2mm;
+  
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.skillsField .skillFieldThree {
+  width: 77mm;
+  height: 38mm;
+
+  margin-top: -5.5mm;
+  overflow-y: hidden; 
+  border: none;
+  resize: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 2mm;
+  
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.skillsField textarea:focus {
+  outline: none;
 }
 </style>
