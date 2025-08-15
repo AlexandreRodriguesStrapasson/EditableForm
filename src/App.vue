@@ -120,51 +120,95 @@
         </div>
       </div>
     </div>
-    <button class="pdfBt">Exportar para PDF</button>
+    <button class="pdfBt" @click="exportPDF">Exportar para PDF</button>
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
+import jsPDF from 'jspdf'
+import html2canvas from 'html2canvas'
 
 const equipmentList = ref(Array(20).fill(''))
-
 const firstEmptyIndex = computed(() =>
   equipmentList.value.findIndex(item => item.trim() === '')
 )
 
 const getRowStyle = (index) => {
-  if (index <= 6) {
-    return { width: '70mm', marginLeft: '2mm' };
+  if (index <= 6) return { width: '70mm', marginLeft: '2mm' }
+  if (index >= 7 && index <= 9) return { width: '64mm', marginLeft: '8mm' }
+  if (index === 10 || index === 11) return { width: '66mm', marginLeft: '6mm' }
+  if (index === 12 || index === 13) return { width: '56mm', marginLeft: '16mm' }
+  if (index === 14) return { width: '69mm', marginLeft: '3mm' }
+  if (index === 15) return { width: '41mm', marginLeft: '31mm' }
+  if (index === 16) return { width: '36mm', marginLeft: '36mm' }
+  if (index === 17) return { width: '31mm', marginLeft: '41mm' }
+  if (index === 18) return { width: '28mm', marginLeft: '44mm' }
+  if (index === 19) return { width: '26mm', marginLeft: '46mm' }
+  return {}
+}
+function createTextareaOverlays(rootEl) {
+  const textareas = rootEl.querySelectorAll('textarea')
+  const overlays = []
+
+  textareas.forEach((ta) => {
+    const cs = getComputedStyle(ta)
+
+    const overlay = document.createElement('div')
+    overlay.className = 'textarea-print-overlay'
+    overlay.textContent = ta.value
+
+    Object.assign(overlay.style, {
+      position: 'absolute',
+      left: ta.offsetLeft + 'px',
+      top: ta.offsetTop + 'px',
+      width: ta.offsetWidth + 'px',
+      height: ta.offsetHeight + 'px',
+      padding: cs.padding,
+      font: cs.font,
+      lineHeight: cs.lineHeight,
+      color: cs.color,
+      background: 'transparent',
+      border: 'none',
+      overflow: 'hidden',
+      whiteSpace: 'pre-wrap',
+      wordBreak: 'break-word',
+      pointerEvents: 'none',
+    })
+
+    const oldVisibility = ta.style.visibility
+    ta.style.visibility = 'hidden'
+    ta.parentElement.appendChild(overlay)
+
+    overlays.push({ overlay, ta, oldVisibility })
+  })
+
+  return () => {
+    overlays.forEach(({ overlay, ta, oldVisibility }) => {
+      overlay.remove()
+      ta.style.visibility = oldVisibility || ''
+    })
   }
-  if (index >= 7 && index <= 9) {
-    return { width: '64mm', marginLeft: '8mm' };
-  }
-  if (index === 10 || index === 11) {
-    return { width: '66mm', marginLeft: '6mm' };
-  }
-  if (index === 12 || index === 13) {
-    return { width: '56mm', marginLeft: '16mm' };
-  }
-  if (index === 14) {
-    return { width: '69mm', marginLeft: '3mm' };
-  }
-  if (index === 15) {
-    return { width: '41mm', marginLeft: '31mm' };
-  }
-  if (index === 16) {
-    return { width: '36mm', marginLeft: '36mm' };
-  }
-  if (index === 17) {
-    return { width: '31mm', marginLeft: '41mm' };
-  }
-  if (index === 18) {
-    return { width: '28mm', marginLeft: '44mm' };
-  }
-  if (index === 19) {
-    return { width: '26mm', marginLeft: '46mm' };
-  }
-  return {};
+}
+
+const exportPDF = async () => {
+  const element = document.getElementById('a4')
+  const cleanup = createTextareaOverlays(element)
+
+  const canvas = await html2canvas(element, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: null,
+  })
+
+  cleanup()
+
+  const pdf = new jsPDF('p', 'mm', 'a4')
+  const pdfWidth = pdf.internal.pageSize.getWidth()
+  const pdfHeight = (canvas.height * pdfWidth) / canvas.width
+
+  pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, pdfWidth, pdfHeight)
+  pdf.save('ficha.pdf')
 }
 </script>
 
