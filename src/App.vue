@@ -196,7 +196,7 @@ const exportPDF = async () => {
   const cleanup = createTextareaOverlays(element)
 
   const canvas = await html2canvas(element, {
-    scale: 2,
+    scale: 1.5,
     useCORS: true,
     backgroundColor: null,
   })
