@@ -283,9 +283,14 @@ const exportPDF = async () => {
   left: 60mm;
 }
 
+.classField input {
+  width: 30mm;
+}
+
+
 .ancestryField{
   width: 50mm;
-  left: 84mm;;
+  left: 89mm;;
 }
 
 .ancestryField input{
