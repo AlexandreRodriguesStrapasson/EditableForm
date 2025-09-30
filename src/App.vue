@@ -1,126 +1,141 @@
 <template>
-  <div>
-    <div id="a4">
-      <div class="playerDataField">
-        <div class="characterName">
-          <input type="text" class="inputPlayerData" placeholder="Nome">
+  <div class="main-container">
+    <h1>Arcana Primária</h1>
+
+    <div class="sheet-container">
+      <div id="a4">
+        <div class="playerDataField">
+          <div class="characterName">
+            <input type="text" class="inputPlayerData" placeholder="Nome">
+          </div>
+          <div class="playerNameField">
+            <input type="text" class="inputPlayerData" placeholder="Jogador">
+          </div>
+          <div class="classField">
+            <input type="text" class="inputPlayerData" placeholder="Classe">
+          </div>
+          <div class="ancestryField">
+            <input type="text" class="inputPlayerData" placeholder="Ancestralidade">
+          </div>
+          <div class="levelField">
+            <input type="text" class="inputPlayerData" placeholder="LvL">
+          </div>
+          <div class="XpField">
+            <input type="text" class="inputPlayerData" placeholder="XP">
+          </div>
         </div>
-        <div class="playerNameField">
-          <input type="text" class="inputPlayerData" placeholder="Jogador">
+    
+        <div class="attributePointsField">
+          <div class="strengthField">
+            <input type="text" id="strengthPoint" placeholder="20">
+          </div>
+          <div class="strengthFieldRight">
+            <input type="text" id="strengthPointRight" placeholder="20">
+          </div>
+          <div class="dexterityField">
+            <input type="text" id="dexterityPoint" placeholder="20">
+          </div>
+          <div class="dexterityFieldRight">
+            <input type="text" id="dexterityPointRight" placeholder="20">
+          </div>
+          <div class="constitutionField">
+            <input type="text" id="constitutionPoint" placeholder="20">
+          </div>
+          <div class="constitutionFieldRight">
+            <input type="text" id="constitutionPointRight" placeholder="20">
+          </div>
+          <div class="intelligenceField">
+            <input type="text" id="intelligencePoint" placeholder="20">
+          </div>
+          <div class="intelligenceFieldRight">
+            <input type="text" id="intelligencePointRight" placeholder="20">
+          </div>
+          <div class="wisdomField">
+            <input type="text" id="wisdomPoint" placeholder="20">
+          </div>
+          <div class="wisdomFieldRight">
+            <input type="text" id="wisdomPointRight" placeholder="20">
+          </div>
+          <div class="charismaField">
+            <input type="text" id="charismaPoint" placeholder="20">
+          </div>
+          <div class="charismaFieldRight">
+            <input type="text" id="charismaPointRight" placeholder="20">
+          </div>
         </div>
-        <div class="classField">
-          <input type="text" class="inputPlayerData" placeholder="Classe">
+    
+        <div class="statusField">
+          <input type="text" id="pvField" placeholder="00">
+          <input type="text" id="caField" placeholder="00">
+          <input type="text" id="levelBonusField" placeholder="00">
+          <input type="text" id="movField" placeholder="00">
         </div>
-        <div class="ancestryField">
-          <input type="text" class="inputPlayerData" placeholder="Ancestralidade">
+    
+        <div class="vrmField">
+          <input type="text" id="vigorField"    placeholder="00">
+          <input type="text" id="reflexesField" placeholder="00">
+          <input type="text" id="magicField"    placeholder="00">
         </div>
-        <div class="levelField">
-          <input type="text" class="inputPlayerData" placeholder="LvL">
+    
+        <div class="weaponsFields">
+          <input type="text" id="weaponNameOne"   placeholder="Espada curta">
+          <input type="text" id="weaponNameTwo"   placeholder="2x Lança">
+          <input type="text" id="weaponNameThree" placeholder="Adaga">
+          <input type="text" id="weaponNameFour"  placeholder="Arco curto">
+    
+          <input type="text" id="atqWeaponOne"  placeholder="10">
+          <input type="text" id="atqWeaponTwo"  placeholder="10">
+          <input type="text" id="atqWeaponTree" placeholder="10">
+          <input type="text" id="atqWeaponFour" placeholder="10">
+    
+          <input type="text" id="dmgWeaponOne"  placeholder="10">
+          <input type="text" id="dmgWeaponTwo"  placeholder="10">
+          <input type="text" id="dmgWeaponTree" placeholder="10">
+          <input type="text" id="dmgWeaponFour" placeholder="10">
+    
+          <input type="text" id="mvnWeaponOne"  placeholder="10">
+          <input type="text" id="mvnWeaponTwo"  placeholder="10">
+          <input type="text" id="mvnWeaponTree" placeholder="10">
+          <input type="text" id="mvnWeaponFour" placeholder="10">
         </div>
-        <div class="XpField">
-          <input type="text" class="inputPlayerData" placeholder="XP">
+    
+        <div class="moneyFields">
+          <input type="text" id="poField" placeholder="100"><br>
+          <input type="text" id="ppField" placeholder="100"><br>
+          <input type="text" id="pcField" placeholder="100">
+        </div>
+    
+        <div class="equipmentsField">
+          <input
+            v-for="(item, index) in equipmentList"
+            :key="index"
+            v-model="equipmentList[index]"
+            :placeholder="index === firstEmptyIndex ? '...' : ''"
+            :style="getRowStyle(index)"
+          >
+        </div>
+    
+        <div class="skillsField">
+          <div>
+            <textarea class="skillFieldOne" placeholder="Bola de fogo"></textarea>
+            <textarea class="skillFieldTwo" placeholder="..."></textarea>
+            <textarea class="skillFieldThree" placeholder="..."></textarea>
+          </div>
         </div>
       </div>
   
-      <div class="attributePointsField">
-        <div class="strengthField">
-          <input type="text" id="strengthPoint" placeholder="20">
+      <div id="a4_spells" v-show="showSpellSheet">
         </div>
-        <div class="strengthFieldRight">
-          <input type="text" id="strengthPointRight" placeholder="20">
-        </div>
-        <div class="dexterityField">
-          <input type="text" id="dexterityPoint" placeholder="20">
-        </div>
-        <div class="dexterityFieldRight">
-          <input type="text" id="dexterityPointRight" placeholder="20">
-        </div>
-        <div class="constitutionField">
-          <input type="text" id="constitutionPoint" placeholder="20">
-        </div>
-        <div class="constitutionFieldRight">
-          <input type="text" id="constitutionPointRight" placeholder="20">
-        </div>
-        <div class="intelligenceField">
-          <input type="text" id="intelligencePoint" placeholder="20">
-        </div>
-        <div class="intelligenceFieldRight">
-          <input type="text" id="intelligencePointRight" placeholder="20">
-        </div>
-        <div class="wisdomField">
-          <input type="text" id="wisdomPoint" placeholder="20">
-        </div>
-        <div class="wisdomFieldRight">
-          <input type="text" id="wisdomPointRight" placeholder="20">
-        </div>
-        <div class="charismaField">
-          <input type="text" id="charismaPoint" placeholder="20">
-        </div>
-        <div class="charismaFieldRight">
-          <input type="text" id="charismaPointRight" placeholder="20">
-        </div>
-      </div>
-  
-      <div class="statusField">
-        <input type="text" id="pvField" placeholder="00">
-        <input type="text" id="caField" placeholder="00">
-        <input type="text" id="levelBonusField" placeholder="00">
-        <input type="text" id="movField" placeholder="00">
-      </div>
-  
-      <div class="vrmField">
-        <input type="text" id="vigorField"    placeholder="00">
-        <input type="text" id="reflexesField" placeholder="00">
-        <input type="text" id="magicField"    placeholder="00">
-      </div>
-  
-      <div class="weaponsFields">
-        <input type="text" id="weaponNameOne"   placeholder="Espada curta">
-        <input type="text" id="weaponNameTwo"   placeholder="2x Lança">
-        <input type="text" id="weaponNameThree" placeholder="Adaga">
-        <input type="text" id="weaponNameFour"  placeholder="Arco curto">
-  
-        <input type="text" id="atqWeaponOne"  placeholder="10">
-        <input type="text" id="atqWeaponTwo"  placeholder="10">
-        <input type="text" id="atqWeaponTree" placeholder="10">
-        <input type="text" id="atqWeaponFour" placeholder="10">
-  
-        <input type="text" id="dmgWeaponOne"  placeholder="10">
-        <input type="text" id="dmgWeaponTwo"  placeholder="10">
-        <input type="text" id="dmgWeaponTree" placeholder="10">
-        <input type="text" id="dmgWeaponFour" placeholder="10">
-  
-        <input type="text" id="mvnWeaponOne"  placeholder="10">
-        <input type="text" id="mvnWeaponTwo"  placeholder="10">
-        <input type="text" id="mvnWeaponTree" placeholder="10">
-        <input type="text" id="mvnWeaponFour" placeholder="10">
-      </div>
-  
-      <div class="moneyFields">
-        <input type="text" id="poField" placeholder="100"><br>
-        <input type="text" id="ppField" placeholder="100"><br>
-        <input type="text" id="pcField" placeholder="100">
-      </div>
-  
-      <div class="equipmentsField">
-        <input
-          v-for="(item, index) in equipmentList"
-          :key="index"
-          v-model="equipmentList[index]"
-          :placeholder="index === firstEmptyIndex ? '...' : ''"
-          :style="getRowStyle(index)"
-        >
-      </div>
-  
-      <div class="skillsField">
-        <div>
-          <textarea class="skillFieldOne" placeholder="Bola de fogo"></textarea>
-          <textarea class="skillFieldTwo" placeholder="..."></textarea>
-          <textarea class="skillFieldThree" placeholder="..."></textarea>
-        </div>
+    </div>
+
+    <div class="controls">
+      <button class="pdfBt" @click="exportPDF">Exportar para PDF</button>
+      
+      <div class="toggle-switch">
+        <input type="checkbox" id="toggleSpells" v-model="showSpellSheet">
+        <label for="toggleSpells">Mostrar Folha de Magias</label>
       </div>
     </div>
-    <button class="pdfBt" @click="exportPDF">Exportar para PDF</button>
   </div>
 </template>
 
@@ -128,6 +143,8 @@
 import { ref, computed } from 'vue'
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
+
+const showSpellSheet = ref(false)
 
 const equipmentList = ref(Array(20).fill(''))
 const firstEmptyIndex = computed(() =>
@@ -147,6 +164,7 @@ const getRowStyle = (index) => {
   if (index === 19) return { width: '26mm', marginLeft: '46mm' }
   return {}
 }
+
 function createTextareaOverlays(rootEl) {
   const textareas = rootEl.querySelectorAll('textarea')
   const overlays = []
@@ -192,30 +210,99 @@ function createTextareaOverlays(rootEl) {
 }
 
 const exportPDF = async () => {
-  const element = document.getElementById('a4')
-  const cleanup = createTextareaOverlays(element)
-
-  const canvas = await html2canvas(element, {
+  const pdf = new jsPDF('p', 'mm', 'a4')
+  const pdfWidth = pdf.internal.pageSize.getWidth()
+  
+  const canvasOptions = {
     scale: 1.5,
     useCORS: true,
     backgroundColor: null,
-  })
+  }
 
-  cleanup()
+  const element1 = document.getElementById('a4')
+  const cleanup1 = createTextareaOverlays(element1)
+  const canvas1 = await html2canvas(element1, canvasOptions)
+  cleanup1()
+  
+  const pdfHeight1 = (canvas1.height * pdfWidth) / canvas1.width
+  pdf.addImage(canvas1.toDataURL('image/png'), 'PNG', 0, 0, pdfWidth, pdfHeight1)
 
-  const pdf = new jsPDF('p', 'mm', 'a4')
-  const pdfWidth = pdf.internal.pageSize.getWidth()
-  const pdfHeight = (canvas.height * pdfWidth) / canvas.width
+  if (showSpellSheet.value) {
+    const element2 = document.getElementById('a4_spells')
+    const canvas2 = await html2canvas(element2, canvasOptions)
+    
+    const pdfHeight2 = (canvas2.height * pdfWidth) / canvas2.width
+    pdf.addPage()
+    pdf.addImage(canvas2.toDataURL('image/png'), 'PNG', 0, 0, pdfWidth, pdfHeight2)
+  }
 
-  pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, pdfWidth, pdfHeight)
   pdf.save('ficha.pdf')
 }
 </script>
 
 <style scoped>
-.pdfBt{
+.main-container {
+  padding: 2rem;
+}
+
+h1 {
+  color: red;
+  text-align: center;
+  padding: 10px;
+  position: relative; 
+  margin-bottom: 20px; 
+}
+
+h1::after {
+  content: ''; 
   position: absolute;
-  top: 3rem;
+  bottom: 0; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background-color: red;
+  transition: width 1.5s ease-out;
+  
+  animation: expand-line 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes expand-line {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  height: 4rem;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+}
+
+.sheet-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pdfBt {
+  order: -1;
+  position: absolute;
+  top: 0;
   right: 2rem;
   height: 3.5rem;
   width: 15rem;
@@ -223,26 +310,34 @@ const exportPDF = async () => {
   background: black;
   border: red solid 1px;
   transition: 1s;
+  cursor: pointer;
 }
 
-.pdfBt:hover{
+.pdfBt:hover {
   background: red;
   color: black;
 }
 
-#a4 {
+#a4, #a4_spells {
   position: relative;
   width: 210mm;
   height: 297mm;
   border: 1px solid black;
-  background-image: url('/img/formModel.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  margin: 20px auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   padding: 10mm;
+  flex-shrink: 0;
+}
+
+#a4 {
+  background-image: url('/img/formModel.png');
+}
+
+#a4_spells {
+  background-image: url('/img/formModelSpells.png');
 }
 
 .playerDataField{
@@ -255,13 +350,7 @@ const exportPDF = async () => {
   flex-direction: row;
 }
 
-.characterName,
-.playerNameField,
-.classAndAncestryyField,
-.ancestryField,
-.classField,
-.levelField,
-.XpField {
+.characterName, .playerNameField, .classAndAncestryyField, .ancestryField, .classField, .levelField, .XpField {
   position: absolute;
   width: 28mm;
   height: 18mm;
@@ -286,7 +375,6 @@ const exportPDF = async () => {
 .classField input {
   width: 30mm;
 }
-
 
 .ancestryField{
   width: 50mm;
@@ -333,14 +421,12 @@ const exportPDF = async () => {
   left: 4mm;
 }
 
-.strengthField, .dexterityField, .constitutionField, .intelligenceField, .wisdomField,
-.charismaField{
+.strengthField, .dexterityField, .constitutionField, .intelligenceField, .wisdomField, .charismaField{
   position: absolute;
   left: 23mm;
 }
 
-.strengthFieldRight, .dexterityFieldRight, .constitutionFieldRight, .intelligenceFieldRight,
-.wisdomFieldRight, .charismaFieldRight{
+.strengthFieldRight, .dexterityFieldRight, .constitutionFieldRight, .intelligenceFieldRight, .wisdomFieldRight, .charismaFieldRight{
   position: absolute;
   left: 36mm;
 }
@@ -393,9 +479,7 @@ const exportPDF = async () => {
   top: 82mm;
 }
 
-#strengthPoint, #dexterityPoint, #constitutionPoint, #intelligencePoint, #wisdomPoint,
-#charismaPoint, #strengthPointRight, #dexterityPointRight, #constitutionPointRight, #intelligencePointRight,
-#wisdomPointRight, #charismaPointRight{
+#strengthPoint, #dexterityPoint, #constitutionPoint, #intelligencePoint, #wisdomPoint, #charismaPoint, #strengthPointRight, #dexterityPointRight, #constitutionPointRight, #intelligencePointRight, #wisdomPointRight, #charismaPointRight{
   width: 30px;
   height: 20px;
   text-align: center;
@@ -478,8 +562,7 @@ const exportPDF = async () => {
   top: 103mm;
 }
 
-#weaponNameOne, #weaponNameTwo, #weaponNameThree, #weaponNameFour,
-#atqWeaponOne, #atqWeaponTwo, #atqWeaponTree, #atqWeaponFour{
+#weaponNameOne, #weaponNameTwo, #weaponNameThree, #weaponNameFour, #atqWeaponOne, #atqWeaponTwo, #atqWeaponTree, #atqWeaponFour{
   position: relative;
   width: 30mm;
   height: 5mm;
@@ -674,62 +757,33 @@ const exportPDF = async () => {
   outline: none;
 }
 
-.skillsField{
-  position: absolute;
-  width: 97mm;
-  height: 63mm;
-  left: 92mm;
-  top: 156mm;
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
 }
 
-.skillsField .skillFieldOne {
-  width: 100%;
-  height: 62mm;
-  
-  overflow-y: hidden; 
-  border: none;
-  resize: none;
-  box-sizing: border-box;
-  background-color: transparent;
-  padding: 2mm;
-  
-  font-family: inherit;
-  font-size: 14px;
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
 }
 
-.skillsField .skillFieldTwo {
-  width: 86mm;
-  height: 43mm;
-  
-  margin-top: -3.5mm;
-  overflow-y: hidden; 
-  border: none;
-  resize: none;
-  box-sizing: border-box;
-  background-color: transparent;
-  padding: 2mm;
-  
-  font-family: inherit;
-  font-size: 14px;
+.pdfBt {
+  height: 3.5rem;
+  width: 15rem;
+  color: red;
+  background: black;
+  border: red solid 1px;
+  transition: 1s;
+  cursor: pointer;
 }
 
-.skillsField .skillFieldThree {
-  width: 77mm;
-  height: 38mm;
-
-  margin-top: -5.5mm;
-  overflow-y: hidden; 
-  border: none;
-  resize: none;
-  box-sizing: border-box;
-  background-color: transparent;
-  padding: 2mm;
-  
-  font-family: inherit;
-  font-size: 14px;
-}
-
-.skillsField textarea:focus {
-  outline: none;
+.pdfBt:hover {
+  background: red;
+  color: black;
 }
 </style>
