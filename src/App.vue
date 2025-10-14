@@ -125,7 +125,23 @@
       </div>
   
       <div id="a4_spells" v-show="showSpellSheet">
+        <div class="spell_main_body">
+          <div class="spell-row">
+            <div class="spell-slot_1" v-for="n in 9" :key="'row1-' + n">
+              <input type="text" class="spell-input">
+            </div>
+          </div>
+
+          <div class="spell-row">
+            <div class="spell-slot_2" v-for="n in 9" :key="'row2-' + n">
+              <input type="text" class="spell-input">
+            </div>
+          </div>
         </div>
+
+        <textarea class="textBox_1" placeholder="Descrição das magia"></textarea>
+        <textarea class="textBox_2" placeholder="Descrição das magia"></textarea>
+      </div>
     </div>
 
     <div class="controls">
@@ -786,4 +802,78 @@ h1::after {
   background: red;
   color: black;
 }
+
+.textBox_1, .textBox_2 {
+  position: absolute;
+  top: 113mm;
+  height: 144mm;
+
+  resize: none;
+  border: none;
+  background-color: transparent;
+  outline: none;
+
+  overflow-y: hidden; 
+  
+  padding: 2mm;
+  font-family: inherit;
+  font-size: 9px;
+  box-sizing: border-box;
+}
+
+.textBox_1 {
+  left: 21mm;
+  width: 77mm;
+}
+
+.textBox_2 {
+  left: 101mm;
+  width: 75mm;
+}
+
+.spell_main_body {
+  position: absolute;
+  top: 73.5mm;
+  left: 43mm;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2mm;
+}
+
+.spell-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5mm;
+}
+
+.spell-slot_1 {
+  width: 14mm;
+  height: 8mm;
+  flex-shrink: 0;
+}
+
+.spell-slot_2 {
+  width: 14mm;
+  height: 8mm;
+  flex-shrink: 0;
+}
+
+.spell-input {
+  width: 100%;
+  height: 100%;
+  
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  text-align: center;
+  font-family: inherit;
+  font-size: 14px;
+  color: black;
+
+  box-sizing: border-box;
+}
+
 </style>
