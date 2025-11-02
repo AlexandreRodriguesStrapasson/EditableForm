@@ -1,6 +1,9 @@
 <template>
   <div class="main-container">
-    <h1>Arcana Primária</h1>
+    //todo usar fonte Mynerve
+    <a href="https://www.arcanaprimaria.com/" target="_blank" class="header-link">
+      <h1>Arcana Primária</h1>
+    </a>
 
     <div class="sheet-container">
       <div id="a4">
@@ -144,12 +147,20 @@
       </div>
     </div>
 
-    <div class="controls">
-      <button class="pdfBt" @click="exportPDF">Exportar para PDF</button>
-      
-      <div class="toggle-switch">
-        <input type="checkbox" id="toggleSpells" v-model="showSpellSheet">
-        <label for="toggleSpells">Mostrar Folha de Magias</label>
+    <div class="floating-menu">
+      <button class="toggle-arrow" @click="menuOpen = !menuOpen">
+        {{ menuOpen ? '▼' : '▲' }}
+      </button>
+
+      <div class="purple-panel" :class="{ show: menuOpen }">
+
+        <button class="pdfBt" @click="exportPDF">Exportar para PDF</button>
+
+        <div class="toggle-switch">
+          <input type="checkbox" id="toggleSpells" v-model="showSpellSheet">
+          <label for="toggleSpells">Mostrar Folha de Magias</label>
+        </div>
+
       </div>
     </div>
   </div>
@@ -254,6 +265,8 @@ const exportPDF = async () => {
 
   pdf.save('ficha.pdf')
 }
+
+const menuOpen = ref(false)
 </script>
 
 <style scoped>
@@ -262,7 +275,7 @@ const exportPDF = async () => {
 }
 
 h1 {
-  color: red;
+  color: white;
   text-align: center;
   padding: 10px;
   position: relative; 
@@ -277,7 +290,7 @@ h1::after {
   transform: translateX(-50%);
   width: 0%;
   height: 2px;
-  background-color: red;
+  background-color: white;
   transition: width 1.5s ease-out;
   
   animation: expand-line 1.5s ease-out forwards;
@@ -315,22 +328,8 @@ h1::after {
   gap: 20px;
 }
 
-.pdfBt {
-  order: -1;
-  position: absolute;
-  top: 0;
-  right: 2rem;
-  height: 3.5rem;
-  width: 15rem;
-  color: red;
-  background: black;
-  border: red solid 1px;
-  transition: 1s;
-  cursor: pointer;
-}
-
 .pdfBt:hover {
-  background: red;
+  background: #c822d0;
   color: black;
 }
 
@@ -791,15 +790,15 @@ h1::after {
 .pdfBt {
   height: 3.5rem;
   width: 15rem;
-  color: red;
+  color: #c822d0;
   background: black;
-  border: red solid 1px;
+  border: #c822d0 solid 1px;
   transition: 1s;
   cursor: pointer;
 }
 
 .pdfBt:hover {
-  background: red;
+  background: #c822d0;
   color: black;
 }
 
@@ -876,4 +875,52 @@ h1::after {
   box-sizing: border-box;
 }
 
+.floating-menu {
+  position: fixed;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 9999;
+}
+
+.toggle-arrow {
+  background: rgb(0, 0, 0);
+  color: white;
+  border: 1px solid #c822d0;
+  width: 40px;
+  height: 25px;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.purple-panel {
+  background: rgb(0, 0, 0);
+  color: white;
+  padding: 15px;
+  border: 1px solid #c822d0;
+  border-radius: 16px 16px 0 0;
+
+  width: 300px;
+  margin: 0 auto;
+
+  height: 0;
+  overflow: hidden;
+  transition: height .4s ease;
+}
+
+.purple-panel.show {
+  height: 131px;
+}
+
+.purple-panel .toggle-switch {
+  margin-top: 15px;
+  font-size: 1rem;
+}
+
+.purple-panel .pdfBt {
+  width: 100%;
+  margin-top: 5px;
+}
 </style>
