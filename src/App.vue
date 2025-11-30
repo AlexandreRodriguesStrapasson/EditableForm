@@ -198,10 +198,15 @@ function createTextareaOverlays(rootEl) {
 
   textareas.forEach((ta) => {
     const cs = getComputedStyle(ta)
-
     const overlay = document.createElement('div')
+    
     overlay.className = 'textarea-print-overlay'
-    overlay.textContent = ta.value
+
+    if (ta.value) {
+        overlay.innerHTML = ta.value.replace(/\n/g, '<br>')
+    } else {
+        overlay.innerHTML = ''
+    }
 
     Object.assign(overlay.style, {
       position: 'absolute',
@@ -210,15 +215,23 @@ function createTextareaOverlays(rootEl) {
       width: ta.offsetWidth + 'px',
       height: ta.offsetHeight + 'px',
       padding: cs.padding,
-      font: cs.font,
+      
+      fontFamily: cs.fontFamily,
+      fontSize: cs.fontSize,
+      fontWeight: cs.fontWeight,
+      letterSpacing: cs.letterSpacing,
       lineHeight: cs.lineHeight,
       color: cs.color,
+      textAlign: cs.textAlign,
+      
       background: 'transparent',
       border: 'none',
       overflow: 'hidden',
-      whiteSpace: 'pre-wrap',
+      
+      whiteSpace: 'pre-wrap', 
       wordBreak: 'break-word',
       pointerEvents: 'none',
+      zIndex: '9999'
     })
 
     const oldVisibility = ta.style.visibility
@@ -247,16 +260,21 @@ const exportPDF = async () => {
   }
 
   const element1 = document.getElementById('a4')
-  const cleanup1 = createTextareaOverlays(element1)
+  const cleanup1 = createTextareaOverlays(element1) 
   const canvas1 = await html2canvas(element1, canvasOptions)
-  cleanup1()
+  cleanup1() 
   
   const pdfHeight1 = (canvas1.height * pdfWidth) / canvas1.width
   pdf.addImage(canvas1.toDataURL('image/png'), 'PNG', 0, 0, pdfWidth, pdfHeight1)
 
   if (showSpellSheet.value) {
     const element2 = document.getElementById('a4_spells')
+    
+    const cleanup2 = createTextareaOverlays(element2)
+    
     const canvas2 = await html2canvas(element2, canvasOptions)
+    
+    cleanup2()
     
     const pdfHeight2 = (canvas2.height * pdfWidth) / canvas2.width
     pdf.addPage()
